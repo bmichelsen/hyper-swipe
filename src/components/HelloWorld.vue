@@ -2,27 +2,21 @@
   <div class="hello">
     <div class="container">
       <div class="cards disliked">DISLIKE
-        <div class="card" v-for="card in dislikedCards">
-          <img :src=card.image />
-          <h4>{{ card.title }}</h4>
-          <p>{{ card.body }}</p>
-        </div>
+        <template v-for="card in dislikedCards">
+          <card-content :card="card"></card-content>
+        </template>
       </div>
       <div class="cards deck">DECK
         <div class="card" v-for="card in allCards">
           <div @mousedown="mouseDown" @mousemove="mouseMove(card, $event)" :style="`transform: translate(${mouse.distance * -1}px)`">
-            <img :src=card.image />
-            <h4>{{ card.title }}</h4>
-            <p>{{ card.body }}</p>
+            <card-content :card="card"></card-content>
           </div>
         </div>
       </div>
       <div class="cards liked">LIKE
-        <div class="card" v-for="card in likedCards">
-          <img :src=card.image />
-          <h4>{{ card.title }}</h4>
-          <p>{{ card.body }}</p>
-        </div>
+        <template v-for="card in likedCards">
+          <card-content :card="card"></card-content>
+        </template>
       </div>
     </div>
   </div>
@@ -30,6 +24,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import cardContent from './cards/Content'
 
 export default {
   name: 'HelloWorld',
@@ -41,6 +36,9 @@ export default {
         distance: 0
       }
     }
+  },
+  components: {
+    cardContent
   },
   methods: {
     ...mapActions([
