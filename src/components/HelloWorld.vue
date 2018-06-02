@@ -89,6 +89,10 @@ export default {
   margin-top: 50px;
 }
 
+.container > div:not(:last-child) {
+  margin-right: 150px;
+}
+
 .deck, .cards {
   display: flex;
   flex-direction: column;
@@ -97,7 +101,6 @@ export default {
 .deck {
   flex: 0 0 300px;
   height: 400px;
-  margin: 0 75px;
 }
 
 .deck .card:nth-of-type(-n+3) {
