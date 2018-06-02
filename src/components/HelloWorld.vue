@@ -1,8 +1,8 @@
 <template>
   <div class="hello">
     <div class="container">
-      <div class="cards liked">LIKE
-        <div class="card" v-for="card in liked">
+      <div class="cards disliked">DISLIKE
+        <div class="card" v-for="card in disliked">
           <img :src=card.image />
           <h4>{{ card.title }}</h4>
           <p>{{ card.body }}</p>
@@ -17,8 +17,8 @@
           </div>
         </div>
       </div>
-      <div class="cards disliked">DISLIKE
-        <div class="card" v-for="card in disliked">
+      <div class="cards liked">LIKE
+        <div class="card" v-for="card in liked">
           <img :src=card.image />
           <h4>{{ card.title }}</h4>
           <p>{{ card.body }}</p>
@@ -63,10 +63,10 @@ export default {
         this.mouse.distance = this.mouse.clicked - e.clientX
 
         if (this.mouse.distance > 100) {
-          this.likeCard(card)
+          this.dislikeCard(card)
           this.mouseUp()
         } else if (this.mouse.distance < -100) {
-          this.dislikeCard(card)
+          this.likeCard(card)
           this.mouseUp()
         }
       }
