@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <div class="container">
-      <div class="cards like">LIKE
+      <div class="cards liked">LIKE
         <div class="card" v-for="card in liked">
           <p>{{ card.title }}</p>
         </div>
@@ -17,7 +17,7 @@
           </p>
         </div>
       </div>
-      <div class="cards dislike">DISLIKE
+      <div class="cards disliked">DISLIKE
         <div class="card" v-for="card in disliked">
           <p>{{ card.title }}</p>
         </div>
@@ -109,8 +109,8 @@ export default {
   z-index: 1;
 }
 
-.container .like,
-.container .dislike {
+.container .liked,
+.container .disliked {
   background: beige;
   flex: 0 0 195px;
   height: 260px;
