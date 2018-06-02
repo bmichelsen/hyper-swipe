@@ -106,7 +106,7 @@ export default {
   flex: 1 0 400px;
 }
 
-.swiped .card:nth-of-type(-n+3) {
+.card:nth-of-type(-n+3) {
   display: flex;
   flex: 1 0 260px;
 }
