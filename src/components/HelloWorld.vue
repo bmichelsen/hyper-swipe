@@ -95,6 +95,11 @@ export default {
   margin: 0 75px;
 }
 
+.container .swiped {
+  background: beige;
+  flex: 0 0 195px;
+  height: 260px;
+}
 
 .deck, .swiped {
   display: flex;
@@ -106,15 +111,20 @@ export default {
   flex: 1 0 400px;
 }
 
-.card:nth-of-type(-n+3) {
-  display: flex;
-  flex: 1 0 260px;
-}
-
 .card {
   background: lightblue;
   display: none;
   flex-direction: column;
+}
+
+.card img {
+  height: 200px;
+  width: 100%;
+}
+
+.card:nth-of-type(-n+3) {
+  display: flex;
+  flex: 1 0 260px;
 }
 
 .card:nth-of-type(1) {
@@ -130,16 +140,5 @@ export default {
 .card:nth-of-type(3) {
   transform: scale(0.8) translate(0, -280%);
   z-index: 1;
-}
-
-.card img {
-  height: 200px;
-  width: 100%;
-}
-
-.container .swiped {
-  background: beige;
-  flex: 0 0 195px;
-  height: 260px;
 }
 </style>
