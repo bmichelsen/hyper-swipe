@@ -53,12 +53,28 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+* { box-sizing: border-box; }
+
+body, html, h1, h4, img, p {
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+body {
+  background: #0f0124;
+  display: flex;
+  flex-direction: column;
+  font: 300 1rem Nunito, sans-serif;
+  min-height: 100vh;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+}
+
+.center-content {
+  align-items: center;
+  justify-content: center;
 }
 </style>
