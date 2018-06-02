@@ -1,18 +1,18 @@
 <template>
   <div class="container">
-    <div class="cards swiped">DISLIKE
+    <div class="cards">DISLIKE
       <template v-for="card in dislikedCards">
         <card-content :card="card"></card-content>
       </template>
     </div>
-    <div class="cards deck">DECK
+    <div class="deck">DECK
       <div class="card" v-for="card in allCards">
         <div @mousedown="mouseDown" @mousemove="mouseMove(card, $event)" :style="`transform: translate(${mouse.distance * -1}px)`">
           <card-content :card="card"></card-content>
         </div>
       </div>
     </div>
-    <div class="cards swiped">LIKE
+    <div class="cards">LIKE
       <template v-for="card in likedCards">
         <card-content :card="card"></card-content>
       </template>
@@ -89,26 +89,26 @@ export default {
   margin-top: 50px;
 }
 
-.container > .cards {
+.deck, .cards {
+  display: flex;
+  flex-direction: column;
+}
+
+.deck {
   flex: 0 0 300px;
   height: 400px;
   margin: 0 75px;
 }
 
-.container .swiped {
-  background: beige;
-  flex: 0 0 195px;
-  height: 260px;
-}
-
-.deck, .swiped {
-  display: flex;
-  flex-direction: column;
-}
-
 .deck .card:nth-of-type(-n+3) {
   display: flex;
   flex: 1 0 400px;
+}
+
+.cards {
+  background: beige;
+  flex: 0 0 195px;
+  height: 260px;
 }
 
 .card {
