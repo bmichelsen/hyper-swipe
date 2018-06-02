@@ -68,10 +68,45 @@ export default {
 }
 
 .container > .cards {
-  background: lightblue;
   flex: 0 0 300px;
   height: 400px;
   margin: 0 75px;
+}
+
+
+.deck {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  background: lightblue;
+  display: none;
+  flex-direction: column;
+}
+
+.card img {
+  width: 100%;
+}
+
+.card:nth-of-type(-n+3) {
+  display: flex;
+  flex: 1 0 400px;
+}
+
+.card:nth-of-type(1) {
+  transform: scale(1);
+  z-index: 3;
+}
+
+.card:nth-of-type(2) {
+  transform: scale(0.9) translate(0, -125%);
+  z-index: 2;
+}
+
+.card:nth-of-type(3) {
+  transform: scale(0.8) translate(0, -280%);
+  z-index: 1;
 }
 
 .container .like,
