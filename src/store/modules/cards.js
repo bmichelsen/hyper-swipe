@@ -44,13 +44,11 @@ const mutations = {
   },
 
   pushToLikedCards (state, { card }) {
-    // TODO: unshift() instead?
-    state.liked.push(card)
+    state.liked.unshift(card)
   },
 
   pushToDislikedCards (state, { card }) {
-    // TODO: unshift() instead?
-    state.disliked.push(card)
+    state.disliked.unshift(card)
   },
 
   removeCardFromAllCards (state, { card }) {
