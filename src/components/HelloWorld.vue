@@ -8,9 +8,11 @@
       </div>
       <div class="cards deck">DECK
         <div class="card" v-for="card in cards">
+          <img :src=card.image />
+          <h4>{{ card.title }}</h4>
+          <p>{{ card.body }}</p>
           <p>
             <button @click="likeCard(card)">Like</button>
-            {{ card.title }}
             <button @click="dislikeCard(card)">Dislike</button>
           </p>
         </div>
