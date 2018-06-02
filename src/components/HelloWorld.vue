@@ -2,7 +2,11 @@
   <div class="hello">
     <div class="container">
       <div class="cards like">LIKE</div>
-      <div class="cards deck">DECK</div>
+      <div class="cards deck">DECK
+        <div class="card" v-for="card in cards">
+          <p>{{ card.title }}</p>
+        </div>
+      </div>
       <div class="cards dislike">DISLIKE</div>
     </div>
   </div>
