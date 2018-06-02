@@ -1,23 +1,21 @@
 <template>
-  <div class="hello">
-    <div class="container">
-      <div class="cards disliked">DISLIKE
-        <template v-for="card in dislikedCards">
+  <div class="container">
+    <div class="cards disliked">DISLIKE
+      <template v-for="card in dislikedCards">
+        <card-content :card="card"></card-content>
+      </template>
+    </div>
+    <div class="cards deck">DECK
+      <div class="card" v-for="card in allCards">
+        <div @mousedown="mouseDown" @mousemove="mouseMove(card, $event)" :style="`transform: translate(${mouse.distance * -1}px)`">
           <card-content :card="card"></card-content>
-        </template>
-      </div>
-      <div class="cards deck">DECK
-        <div class="card" v-for="card in allCards">
-          <div @mousedown="mouseDown" @mousemove="mouseMove(card, $event)" :style="`transform: translate(${mouse.distance * -1}px)`">
-            <card-content :card="card"></card-content>
-          </div>
         </div>
       </div>
-      <div class="cards liked">LIKE
-        <template v-for="card in likedCards">
-          <card-content :card="card"></card-content>
-        </template>
-      </div>
+    </div>
+    <div class="cards liked">LIKE
+      <template v-for="card in likedCards">
+        <card-content :card="card"></card-content>
+      </template>
     </div>
   </div>
 </template>
