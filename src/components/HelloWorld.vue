@@ -1,7 +1,11 @@
 <template>
   <div class="hello">
     <div class="container">
-      <div class="cards like">LIKE</div>
+      <div class="cards like">LIKE
+        <div class="card" v-for="card in liked">
+          <p>{{ card.title }}</p>
+        </div>
+      </div>
       <div class="cards deck">DECK
         <div class="card" v-for="card in cards">
           <p>
@@ -11,7 +15,11 @@
           </p>
         </div>
       </div>
-      <div class="cards dislike">DISLIKE</div>
+      <div class="cards dislike">DISLIKE
+        <div class="card" v-for="card in disliked">
+          <p>{{ card.title }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
