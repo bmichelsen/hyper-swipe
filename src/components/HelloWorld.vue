@@ -2,14 +2,14 @@
   <div class="hello">
     <div class="container">
       <div class="cards disliked">DISLIKE
-        <div class="card" v-for="card in disliked">
+        <div class="card" v-for="card in dislikedCards">
           <img :src=card.image />
           <h4>{{ card.title }}</h4>
           <p>{{ card.body }}</p>
         </div>
       </div>
       <div class="cards deck">DECK
-        <div class="card" v-for="card in cards">
+        <div class="card" v-for="card in allCards">
           <div @mousedown="mouseDown" @mousemove="mouseMove(card, $event)" :style="`transform: translate(${mouse.distance * -1}px)`">
             <img :src=card.image />
             <h4>{{ card.title }}</h4>
@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="cards liked">LIKE
-        <div class="card" v-for="card in liked">
+        <div class="card" v-for="card in likedCards">
           <img :src=card.image />
           <h4>{{ card.title }}</h4>
           <p>{{ card.body }}</p>
@@ -29,15 +29,12 @@
 </template>
 
 <script>
-import _cards from '../api/cards.js'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'HelloWorld',
   data () {
     return {
-      cards: [],
-      liked: [],
-      disliked: [],
       mouse: {
         down: false,
         clicked: 0,
@@ -46,14 +43,10 @@ export default {
     }
   },
   methods: {
-    likeCard (card) {
-      this.liked.unshift(card)
-      this.cards.splice(this.cards.indexOf(card), 1)
-    },
-    dislikeCard (card) {
-      this.disliked.unshift(card)
-      this.cards.splice(this.cards.indexOf(card), 1)
-    },
+    ...mapActions([
+      'addToLikedCards',
+      'addToDislikedCards'
+    ]),
     mouseDown (e) {
       this.mouse.down = true
       this.mouse.clicked = e.clientX
@@ -63,10 +56,10 @@ export default {
         this.mouse.distance = this.mouse.clicked - e.clientX
 
         if (this.mouse.distance > 100) {
-          this.dislikeCard(card)
+          this.addToDislikedCards(card)
           this.mouseUp()
         } else if (this.mouse.distance < -100) {
-          this.likeCard(card)
+          this.addToLikedCards(card)
           this.mouseUp()
         }
       }
@@ -75,14 +68,17 @@ export default {
       this.mouse.down = false
       this.mouse.clicked = 0
       this.mouse.distance = 0
-    },
-    loadCards () {
-      this.cards = _cards
     }
+  },
+  computed: {
+    ...mapGetters([
+      'allCards',
+      'likedCards',
+      'dislikedCards'
+    ])
   },
   mounted () {
     window.addEventListener('mouseup', this.mouseUp)
-    this.loadCards()
   }
 }
 </script>
