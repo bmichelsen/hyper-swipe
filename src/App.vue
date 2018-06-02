@@ -1,15 +1,18 @@
 <template>
   <div id="app">
+    <CardHeader/>
     <CardSection/>
   </div>
 </template>
 
 <script>
+import CardHeader from './components/cards/Header'
 import CardSection from './components/cards/Section'
 
 export default {
   name: 'App',
   components: {
+    CardHeader,
     CardSection
   },
   created () {
