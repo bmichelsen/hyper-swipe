@@ -6,10 +6,12 @@
       </template>
     </div>
     <div class="deck">DECK
-      <div class="card" v-for="card in allCards">
-        <div @mousedown="mouseDown" @mousemove="mouseMove(card, $event)" :style="`transform: translate(${mouse.distance * -1}px)`">
-          <card-content :card="card"></card-content>
-        </div>
+      <div class="card"
+        v-for="card in allCards"
+        v-swipe.left.right
+        @swipe-left="addToDislikedCards(card)"
+        @swipe-right="addToLikedCards(card)">
+        <card-content :card="card"></card-content>
       </div>
     </div>
     <div class="cards">LIKE
@@ -22,6 +24,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import swipe from '../directives/swipe'
 import cardContent from './cards/Content'
 
 export default {
@@ -38,33 +41,14 @@ export default {
   components: {
     cardContent
   },
+  directives: {
+    swipe
+  },
   methods: {
     ...mapActions([
       'addToLikedCards',
       'addToDislikedCards'
-    ]),
-    mouseDown (e) {
-      this.mouse.down = true
-      this.mouse.clicked = e.clientX
-    },
-    mouseMove (card, e) {
-      if (this.mouse.down) {
-        this.mouse.distance = this.mouse.clicked - e.clientX
-
-        if (this.mouse.distance > 100) {
-          this.addToDislikedCards(card)
-          this.mouseUp()
-        } else if (this.mouse.distance < -100) {
-          this.addToLikedCards(card)
-          this.mouseUp()
-        }
-      }
-    },
-    mouseUp () {
-      this.mouse.down = false
-      this.mouse.clicked = 0
-      this.mouse.distance = 0
-    }
+    ])
   },
   computed: {
     ...mapGetters([
