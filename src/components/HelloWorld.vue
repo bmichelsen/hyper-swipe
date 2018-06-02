@@ -56,9 +56,6 @@ export default {
       'likedCards',
       'dislikedCards'
     ])
-  },
-  mounted () {
-    window.addEventListener('mouseup', this.mouseUp)
   }
 }
 </script>
