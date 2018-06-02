@@ -121,20 +121,17 @@ export default {
   flex: 1 0 260px;
 }
 
-.deck .card:nth-of-type(1),
-.swiped .card:nth-of-type(1) {
+.card:nth-of-type(1) {
   transform: scale(1);
   z-index: 3;
 }
 
-.deck .card:nth-of-type(2),
-.swiped .card:nth-of-type(2) {
+.card:nth-of-type(2) {
   transform: scale(0.9) translate(0, -125%);
   z-index: 2;
 }
 
-.deck .card:nth-of-type(3),
-.swiped .card:nth-of-type(3) {
+.card:nth-of-type(3) {
   transform: scale(0.8) translate(0, -280%);
   z-index: 1;
 }
