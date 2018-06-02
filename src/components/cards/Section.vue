@@ -36,15 +36,6 @@ import cardContent from './Content'
 
 export default {
   name: 'CardSection',
-  data () {
-    return {
-      mouse: {
-        down: false,
-        clicked: 0,
-        distance: 0
-      }
-    }
-  },
   components: {
     cardContent
   },
