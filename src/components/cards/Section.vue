@@ -31,11 +31,11 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import swipe from '../directives/swipe'
-import cardContent from './cards/Content'
+import swipe from '../../directives/swipe'
+import cardContent from './Content'
 
 export default {
-  name: 'HelloWorld',
+  name: 'CardSection',
   data () {
     return {
       mouse: {

@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <HelloWorld/>
+    <CardSection/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import CardSection from './components/cards/Section'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    CardSection
   },
   created () {
     (() => {
