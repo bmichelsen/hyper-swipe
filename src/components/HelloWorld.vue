@@ -3,7 +3,9 @@
     <div class="container">
       <div class="cards liked">LIKE
         <div class="card" v-for="card in liked">
-          <p>{{ card.title }}</p>
+          <img :src=card.image />
+          <h4>{{ card.title }}</h4>
+          <p>{{ card.body }}</p>
         </div>
       </div>
       <div class="cards deck">DECK
@@ -19,7 +21,9 @@
       </div>
       <div class="cards disliked">DISLIKE
         <div class="card" v-for="card in disliked">
-          <p>{{ card.title }}</p>
+          <img :src=card.image />
+          <h4>{{ card.title }}</h4>
+          <p>{{ card.body }}</p>
         </div>
       </div>
     </div>
@@ -89,22 +93,51 @@ export default {
   width: 100%;
 }
 
-.card:nth-of-type(-n+3) {
+.deck .card:nth-of-type(-n+3) {
   display: flex;
   flex: 1 0 400px;
 }
 
-.card:nth-of-type(1) {
+.deck .card:nth-of-type(1) {
   transform: scale(1);
   z-index: 3;
 }
 
-.card:nth-of-type(2) {
+.deck .card:nth-of-type(2) {
   transform: scale(0.9) translate(0, -125%);
   z-index: 2;
 }
 
-.card:nth-of-type(3) {
+.deck .card:nth-of-type(3) {
+  transform: scale(0.8) translate(0, -280%);
+  z-index: 1;
+}
+
+.liked, .disliked {
+  display: flex;
+  flex-direction: column;
+}
+
+.liked .card:nth-of-type(-n+3),
+.disliked .card:nth-of-type(-n+3) {
+  display: flex;
+  flex: 1 0 260px;
+}
+
+.liked .card:nth-of-type(1),
+.disliked .card:nth-of-type(1) {
+  transform: scale(1);
+  z-index: 3;
+}
+
+.liked .card:nth-of-type(2),
+.disliked .card:nth-of-type(2) {
+  transform: scale(0.9) translate(0, -125%);
+  z-index: 2;
+}
+
+.liked .card:nth-of-type(3),
+.disliked .card:nth-of-type(3) {
   transform: scale(0.8) translate(0, -280%);
   z-index: 1;
 }
