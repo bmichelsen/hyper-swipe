@@ -10,13 +10,11 @@
       </div>
       <div class="cards deck">DECK
         <div class="card" v-for="card in cards">
-          <img :src=card.image />
-          <h4>{{ card.title }}</h4>
-          <p>{{ card.body }}</p>
-          <p>
-            <button @click="likeCard(card)">Like</button>
-            <button @click="dislikeCard(card)">Dislike</button>
-          </p>
+          <div @mousedown="mouseDown" @mousemove="mouseMove(card, $event)" :style="`transform: translate(${mouse.distance * -1}px)`">
+            <img :src=card.image />
+            <h4>{{ card.title }}</h4>
+            <p>{{ card.body }}</p>
+          </div>
         </div>
       </div>
       <div class="cards disliked">DISLIKE
@@ -39,7 +37,12 @@ export default {
     return {
       cards: [],
       liked: [],
-      disliked: []
+      disliked: [],
+      mouse: {
+        down: false,
+        clicked: 0,
+        distance: 0
+      }
     }
   },
   methods: {
@@ -51,11 +54,34 @@ export default {
       this.disliked.unshift(card)
       this.cards.splice(this.cards.indexOf(card), 1)
     },
+    mouseDown (e) {
+      this.mouse.down = true
+      this.mouse.clicked = e.clientX
+    },
+    mouseMove (card, e) {
+      if (this.mouse.down) {
+        this.mouse.distance = this.mouse.clicked - e.clientX
+
+        if (this.mouse.distance > 100) {
+          this.likeCard(card)
+          this.mouseUp()
+        } else if (this.mouse.distance < -100) {
+          this.dislikeCard(card)
+          this.mouseUp()
+        }
+      }
+    },
+    mouseUp () {
+      this.mouse.down = false
+      this.mouse.clicked = 0
+      this.mouse.distance = 0
+    },
     loadCards () {
       this.cards = _cards
     }
   },
   mounted () {
+    window.addEventListener('mouseup', this.mouseUp)
     this.loadCards()
   }
 }
