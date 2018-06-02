@@ -13,8 +13,42 @@ export default {
     HelloWorld
   },
   created () {
-    this.$store.dispatch('getAllCards')
+    (() => {
+
+      const supportsLocalStorage = () => {
+        return typeof(Storage) !== 'undefined'
+      }
+
+      if (!supportsLocalStorage) {
+
+        alert("Please enable localStorage.")
+
+      } else {
+
+        try {
+
+          if (localStorage.getItem('cards')) {
+
+            this.$store.dispatch('getAllCardsFromLocalStorage')
+
+          } else {
+
+            this.$store.dispatch('getAllCardsFromAPI')
+
+          }
+
+        } catch (e) {
+
+          alert("Could not load data.")
+
+        }
+
+      }
+
+    })()
+
   }
+
 }
 </script>
 

@@ -13,8 +13,12 @@ const getters = {
 }
 
 const actions = {
-  getAllCards ({ commit }) {
-    commit('setCards', cards)
+  getAllCardsFromAPI ({ commit }) {
+    commit('setCardsFromAPI', cards)
+  },
+
+  getAllCardsFromLocalStorage ({ commit }) {
+    commit('setCardsFromLocalStorage')
   },
 
   addToLikedCards ({ state, commit }, card) {
@@ -29,8 +33,14 @@ const actions = {
 }
 
 const mutations = {
-  setCards (state, cards) {
+  setCardsFromAPI (state, cards) {
     state.all = cards
+  },
+
+  setCardsFromLocalStorage (state) {
+    if (localStorage.getItem('cards')) {
+      this.replaceState(Object.assign(state, JSON.parse(localStorage.getItem('cards'))))
+    }
   },
 
   pushToLikedCards (state, { card }) {
