@@ -101,16 +101,6 @@ export default {
   flex-direction: column;
 }
 
-.card {
-  background: lightblue;
-  display: none;
-  flex-direction: column;
-}
-
-.card img {
-  width: 100%;
-}
-
 .deck .card:nth-of-type(-n+3) {
   display: flex;
   flex: 1 0 400px;
@@ -119,6 +109,12 @@ export default {
 .swiped .card:nth-of-type(-n+3) {
   display: flex;
   flex: 1 0 260px;
+}
+
+.card {
+  background: lightblue;
+  display: none;
+  flex-direction: column;
 }
 
 .card:nth-of-type(1) {
@@ -134,6 +130,10 @@ export default {
 .card:nth-of-type(3) {
   transform: scale(0.8) translate(0, -280%);
   z-index: 1;
+}
+
+.card img {
+  width: 100%;
 }
 
 .container .swiped {
