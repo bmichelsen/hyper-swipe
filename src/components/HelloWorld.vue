@@ -4,7 +4,11 @@
       <div class="cards like">LIKE</div>
       <div class="cards deck">DECK
         <div class="card" v-for="card in cards">
-          <p>{{ card.title }}</p>
+          <p>
+            <button @click="likeCard(card)">Like</button>
+            {{ card.title }}
+            <button @click="dislikeCard(card)">Dislike</button>
+          </p>
         </div>
       </div>
       <div class="cards dislike">DISLIKE</div>
@@ -19,10 +23,20 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      cards: []
+      cards: [],
+      liked: [],
+      disliked: []
     }
   },
   methods: {
+    likeCard (card) {
+      this.liked.push(card)
+      this.cards.splice(this.cards.indexOf(card), 1)
+    },
+    dislikeCard (card) {
+      this.disliked.push(card)
+      this.cards.splice(this.cards.indexOf(card), 1)
+    },
     loadCards () {
       this.cards = _cards
     }
