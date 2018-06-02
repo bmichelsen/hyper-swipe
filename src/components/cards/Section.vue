@@ -8,7 +8,7 @@
     <div v-else class="cards center-content">
       <p class="card-text">Dislike</p>
     </div>
-    <div class="deck">
+    <div v-if="allCards && allCards.length > 0" class="deck">
       <template v-for="card in allCards">
         <card-content
           v-swipe.left.right
@@ -17,6 +17,9 @@
           :card="card">
         </card-content>
       </template>
+    </div>
+    <div v-else class="deck no-shadows center-content">
+      <p class="deck-empty">Empty deck</p>
     </div>
     <div v-if="likedCards && likedCards.length > 0" class="cards">
       <template v-for="card in likedCards">
@@ -82,8 +85,11 @@ export default {
   height: 400px;
 }
 
+.no-shadows {
+  box-shadow: none;
+}
+
 .cards {
-  align-items: center;
   background-clip: content-box, border-box;
   background-image: linear-gradient(#0f0124, #0f0124), linear-gradient(143deg, #c44aff, #9224ff);
   background-origin: border-box;
@@ -102,6 +108,14 @@ export default {
   letter-spacing: 0.8px;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-shadow: 0 22px 44px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+}
+
+.deck-empty {
+  color: white;
+  font: 800 2.25rem Nunito, sans-serif;
+  letter-spacing: 0.8px;
   text-shadow: 0 22px 44px rgba(0, 0, 0, 0.5);
   text-transform: uppercase;
 }
