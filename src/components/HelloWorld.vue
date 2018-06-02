@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="cards disliked">DISLIKE
+    <div class="cards swiped">DISLIKE
       <template v-for="card in dislikedCards">
         <card-content :card="card"></card-content>
       </template>
@@ -12,7 +12,7 @@
         </div>
       </div>
     </div>
-    <div class="cards liked">LIKE
+    <div class="cards swiped">LIKE
       <template v-for="card in likedCards">
         <card-content :card="card"></card-content>
       </template>
@@ -131,37 +131,32 @@ export default {
   z-index: 1;
 }
 
-.liked, .disliked {
+.swiped {
   display: flex;
   flex-direction: column;
 }
 
-.liked .card:nth-of-type(-n+3),
-.disliked .card:nth-of-type(-n+3) {
+.swiped .card:nth-of-type(-n+3) {
   display: flex;
   flex: 1 0 260px;
 }
 
-.liked .card:nth-of-type(1),
-.disliked .card:nth-of-type(1) {
+.swiped .card:nth-of-type(1) {
   transform: scale(1);
   z-index: 3;
 }
 
-.liked .card:nth-of-type(2),
-.disliked .card:nth-of-type(2) {
+.swiped .card:nth-of-type(2) {
   transform: scale(0.9) translate(0, -125%);
   z-index: 2;
 }
 
-.liked .card:nth-of-type(3),
-.disliked .card:nth-of-type(3) {
+.swiped .card:nth-of-type(3) {
   transform: scale(0.8) translate(0, -280%);
   z-index: 1;
 }
 
-.container .liked,
-.container .disliked {
+.container .swiped {
   background: beige;
   flex: 0 0 195px;
   height: 260px;
