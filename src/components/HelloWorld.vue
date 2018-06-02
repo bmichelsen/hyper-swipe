@@ -9,11 +9,22 @@
 </template>
 
 <script>
+import _cards from '../api/cards.js'
+
 export default {
   name: 'HelloWorld',
   data () {
     return {
+      cards: []
     }
+  },
+  methods: {
+    loadCards () {
+      this.cards = _cards
+    }
+  },
+  mounted () {
+    this.loadCards()
   }
 }
 </script>
