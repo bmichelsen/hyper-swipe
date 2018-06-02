@@ -38,11 +38,11 @@ export default {
   },
   methods: {
     likeCard (card) {
-      this.liked.push(card)
+      this.liked.unshift(card)
       this.cards.splice(this.cards.indexOf(card), 1)
     },
     dislikeCard (card) {
-      this.disliked.push(card)
+      this.disliked.unshift(card)
       this.cards.splice(this.cards.indexOf(card), 1)
     },
     loadCards () {
