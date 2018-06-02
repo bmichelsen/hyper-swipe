@@ -39,7 +39,7 @@ const mutations = {
 
   setCardsFromLocalStorage (state) {
     if (localStorage.getItem('cards')) {
-      this.replaceState(Object.assign(state, JSON.parse(localStorage.getItem('cards'))))
+      this.replaceState(JSON.parse(localStorage.getItem('cards')))
     }
   },
 
