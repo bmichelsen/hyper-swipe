@@ -2,7 +2,7 @@
   <div class="card">
     <img :src=card.image />
     <h4>{{ card.title }}</h4>
-    <p>{{ card.body }}</p>
+    <p class="block-ellipsis">{{ card.body }}</p>
   </div>
 </template>
 

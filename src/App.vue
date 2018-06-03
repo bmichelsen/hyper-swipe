@@ -76,6 +76,19 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.block-ellipsis {
+  display: block;
+  display: -webkit-box;
+  margin: 0 auto;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -moz-box-orient: vertical;
+  -ms-box-orient: vertical;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
 .center-content {
   align-items: center;
   justify-content: center;
