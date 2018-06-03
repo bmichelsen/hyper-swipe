@@ -25,7 +25,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0 0 120px 0;
+  margin: 0 0 94px 0;
 }
 
 header .content {
