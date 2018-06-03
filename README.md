@@ -19,6 +19,10 @@ Excerpt from the assignment:
 
 ![Hyper Swipe Code Challenge Design](http://bmichelsen.no/f/hyper-swipe-design.png)
 
+## Solution
+
+[See one way to solve the challenge here](http://bmichelsen.no/f/hyper-swipe/).
+
 ## Build Setup
 
 ``` bash
