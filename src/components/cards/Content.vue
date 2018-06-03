@@ -1,6 +1,6 @@
 <template>
-  <div class="card">
-    <img :src=card.image />
+  <div class="card user-select-none">
+    <img :src=card.image draggable="false" />
     <h4>{{ card.title }}</h4>
     <p class="block-ellipsis">{{ card.body }}</p>
   </div>
