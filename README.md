@@ -1,6 +1,21 @@
-# hyper-swipe
+# Hyper Swipe Code Challenge
 
-> A Vue.js project
+Excerpt from the assignment:
+
+> This is a small test to look at your structure, workflow and code skills as a
+> developer. We are looking for a pixel perfect design implementation with your
+> own touch to the swiping.
+>
+> The challenge consists of a simple single-page app where you swipe cards
+> between "Like" and "Dislike", just like Tinder. You'll be provided with a
+> simple API containing the cards and the results of your swiping should be
+> saved in localstorage.
+
+[Read the entire code challenge document](https://hyper-swipe.herokuapp.com).
+
+## Design to Implement
+
+![Hyper Swipe Code Challenge Design](http://bmichelsen.no/f/hyper-swipe-design.png)
 
 ## Build Setup
 
