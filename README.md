@@ -1,5 +1,7 @@
 # Hyper Swipe Code Challenge
 
+## Assignment
+
 Excerpt from the assignment:
 
 > This is a small test to look at your structure, workflow and code skills as a
