@@ -1,4 +1,4 @@
-import cards from '../../api/cards'
+import Api from '../../services/api'
 
 const state = {
   all: [],
@@ -14,7 +14,11 @@ const getters = {
 
 const actions = {
   getAllCardsFromAPI ({ commit }) {
-    commit('setCardsFromAPI', cards)
+    Api().get('/cards').then((response) => {
+      commit('setCardsFromAPI', { cards: response.data })
+    }, (err) => {
+      console.log(err)
+    })
   },
 
   getAllCardsFromLocalStorage ({ commit }) {
@@ -33,7 +37,7 @@ const actions = {
 }
 
 const mutations = {
-  setCardsFromAPI (state, cards) {
+  setCardsFromAPI (state, { cards }) {
     state.all = cards
   },
 
