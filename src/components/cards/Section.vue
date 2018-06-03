@@ -81,8 +81,17 @@ export default {
 .deck {
   border-radius: 10px;
   box-shadow: 0 22px 44px 0 #000000;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
   flex: 0 0 300px;
   height: 400px;
+}
+
+.deck:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
 }
 
 .no-shadows {
