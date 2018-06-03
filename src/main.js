@@ -13,7 +13,3 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
-
-store.subscribe((mutation, state) => {
-  localStorage.setItem('cards', JSON.stringify(state))
-})
